@@ -16,5 +16,9 @@ ENV LDAP_ROOT_PASS passpass
 
 EXPOSE 389 636 4444
 
+# Create the sleleton 1st run
+ADD scripts /scripts
+RUN chmod +x /scripts/start.sh && touch /first_run
+
 # Kicking in
 CMD ["/scripts/start.sh"]
